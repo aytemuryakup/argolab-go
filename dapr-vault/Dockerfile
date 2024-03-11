@@ -14,7 +14,6 @@ FROM build AS publish
 RUN go build -o main .
 
 FROM base AS final
-WORKDIR /app
 COPY --from=publish /src/* ./
 
 CMD ["/app/main"]
